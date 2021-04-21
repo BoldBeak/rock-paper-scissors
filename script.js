@@ -35,6 +35,7 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+<<<<<<< HEAD
 function game() {
   let scores = {"player": 0, "computer": 0, "tie": 0};
   let playerScore = scores.player;
@@ -76,8 +77,10 @@ function game() {
   }
   //console.log(tally);
 }
+=======
+>>>>>>> parent of fc18491 (loop portion of game function set and returning expected results for round)
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
 
 
-console.log(game());
+console.log(playRound(playerSelection, computerSelection));
