@@ -40,17 +40,41 @@ function game() {
   let playerScore = scores.player;
   let computerScore = scores.computer;
   let tieScore = scores.tie;
+  
   let i = 1;
 
-  while (i < 6) {
+  while ((playerScore + computerScore + tieScore) < 6) {
     const playerSelection = playerPlay();
     const computerSelection = computerPlay();
     let round = playRound(playerSelection, computerSelection);
+    let tally = `~~ Score Tally ~~ 
+  You: ${playerScore}
+  Computer: ${computerScore}
+  Ties: ${tieScore}`;
 
-    console.log(`Round ${i}:  ${round}`);
-    if (round.includes("win")) ()
-    i++;
+  console.log("~~" + typeof(playerScore));
+
+  if (round.startsWith("You win!") === true) {
+      ++playerScore;
+      console.log(`Round ${i}:  ${round}`);
+      console.log(tally);
+    } else
+    if (round.startsWith("You lose!") === true) {
+      ++computerScore;
+      console.log(`Round ${i}:  ${round}`);
+      console.log(tally);
+    } else
+    if (round.startsWith("It's a tie!") === true) {
+      ++tieScore;
+      console.log(`Round ${i}:  ${round}`);
+      console.log(tally);
+    }  
+
+    //console.log(tally);
+   // console.log;
+    //console.log(typeof(playerScore));
   }
+  //console.log(tally);
 }
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
