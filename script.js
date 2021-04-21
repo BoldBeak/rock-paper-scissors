@@ -35,8 +35,25 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function game() {
+  let scores = {"player": 0, "computer": 0, "tie": 0};
+  let playerScore = scores.player;
+  let computerScore = scores.computer;
+  let tieScore = scores.tie;
+  let i = 1;
+
+  while (i < 6) {
+    const playerSelection = playerPlay();
+    const computerSelection = computerPlay();
+    let round = playRound(playerSelection, computerSelection);
+
+    console.log(`Round ${i}:  ${round}`);
+    if (round.includes("win")) ()
+    i++;
+  }
+}
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
 
 
-console.log(playRound(playerSelection, computerSelection));
+console.log(game());
