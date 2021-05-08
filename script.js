@@ -35,16 +35,15 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-<<<<<<< HEAD
 function game() {
-  let scores = {"player": 0, "computer": 0, "tie": 0};
-  let playerScore = scores.player;
-  let computerScore = scores.computer;
-  let tieScore = scores.tie;
+  let playerScore = 0;
+  let computerScore = 0;
+  let tieScore = 0;
+  
   
   let i = 1;
 
-  while ((playerScore + computerScore + tieScore) < 6) {
+  while (i < 6) {
     const playerSelection = playerPlay();
     const computerSelection = computerPlay();
     let round = playRound(playerSelection, computerSelection);
@@ -52,35 +51,33 @@ function game() {
   You: ${playerScore}
   Computer: ${computerScore}
   Ties: ${tieScore}`;
+    
 
-  console.log("~~" + typeof(playerScore));
-
-  if (round.startsWith("You win!") === true) {
-      ++playerScore;
+  if (round.startsWith("You win!")) {
+      playerScore++;
       console.log(`Round ${i}:  ${round}`);
       console.log(tally);
     } else
-    if (round.startsWith("You lose!") === true) {
-      ++computerScore;
+    if (round.startsWith("You lose!")) {
+      computerScore++;
       console.log(`Round ${i}:  ${round}`);
       console.log(tally);
     } else
-    if (round.startsWith("It's a tie!") === true) {
-      ++tieScore;
+    if (round.startsWith("It's a tie!")) {
+      tieScore++;
       console.log(`Round ${i}:  ${round}`);
       console.log(tally);
     }  
-
+    i++;
     //console.log(tally);
    // console.log;
     //console.log(typeof(playerScore));
   }
   //console.log(tally);
 }
-=======
->>>>>>> parent of fc18491 (loop portion of game function set and returning expected results for round)
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
 
 
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playRound(playerSelection, computerSelection));
+console.log(game());
