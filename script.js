@@ -15,32 +15,36 @@ function playerPlay() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
+let playerScore = 0;
+let computerScore = 0;
+let tieScore = 0;
+
 function playRound(playerSelection, computerSelection) {
-  console.log("p = " + playerSelection, "c = " + computerSelection);
+  // console.log(`You chose: ${playerSelection}, Computer chose = ${computerSelection}`);
   let resultOfRound = {"win": `You win! Your ${playerSelection} beat the computer's ${computerSelection}.`, "lose": `You lose! Computer's ${computerSelection} beat your ${playerSelection}.`, "tie": `It's a tie! You both selected ${playerSelection}. Try again!`};
 
   if (playerSelection === computerSelection) {
+    tieScore++;
     return resultOfRound.tie;
   } else
   if (playerSelection === "rock" && computerSelection === "scissors") {
+    playerScore++;
     return resultOfRound.win;
   } else
   if (playerSelection === "paper" && computerSelection === "rock") {
+    playerScore++;
     return resultOfRound.win;
   } else
   if (playerSelection === "scissors" && computerSelection === "paper") {
-        return resultOfRound.win;
+    playerScore++;
+    return resultOfRound.win;
   } else {
+    computerScore++;
     return resultOfRound.lose;
   }
 }
 
 function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  let tieScore = 0;
-  
-  
   let i = 1;
 
   while (i < 6) {
@@ -54,26 +58,26 @@ function game() {
     
 
   if (round.startsWith("You win!")) {
-      playerScore++;
+      //playerScore++;
       console.log(`Round ${i}:  ${round}`);
       console.log(tally);
     } else
     if (round.startsWith("You lose!")) {
-      computerScore++;
+      //computerScore++;
       console.log(`Round ${i}:  ${round}`);
       console.log(tally);
     } else
     if (round.startsWith("It's a tie!")) {
-      tieScore++;
+      //tieScore++;
       console.log(`Round ${i}:  ${round}`);
       console.log(tally);
     }  
     i++;
-    //console.log(tally);
-   // console.log;
-    //console.log(typeof(playerScore));
+    // console.log(tally);
+   
   }
-  //console.log(tally);
+  
+  return(`p: ${playerScore}, c: ${computerScore}, t: ${tieScore}`);
 }
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
