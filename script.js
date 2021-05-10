@@ -6,13 +6,14 @@ function computerPlay() {
 }
 
 function playerPlay() {
-  //let playerInput = prompt(Choose: Rock, Paper, or Scissors);
-  //let lowerInput = playerInput.toLowerCase();
-  //return lowerInput;
+  let playerInput = prompt(`Choose: Rock, Paper, or Scissors`);
+  let lowerInput = playerInput.toLowerCase();
+  return lowerInput;
 
-  // ***** Random for setup/testing *****
+  /* ***** Random for setup/testing *****
   let choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
+  */
 }
 
 let playerScore = 0;
@@ -78,7 +79,21 @@ function game() {
   You: ${playerScore}
   Computer: ${computerScore}
   Ties: ${tieScore}`
-  return(finalScore);
+
+  let matchWinner = "";
+
+  if (playerScore > computerScore) {
+    matchWinner = "You"
+  } else
+    if (computerScore > playerScore) {
+      matchWinner = "The computer"
+  } else
+  if (playerScore === computerScore) {
+    matchWinner = "Nobody"
+  }
+
+  return(`${matchWinner} won this match! Hit the refresh button to play again!
+  ${finalScore}`);
 }
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
