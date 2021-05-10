@@ -73,11 +73,12 @@ function game() {
       console.log(tally);
     }  
     i++;
-    // console.log(tally);
-   
   }
-  
-  return(`p: ${playerScore}, c: ${computerScore}, t: ${tieScore}`);
+  const finalScore = `~~ FINAL SCORE ~~
+  You: ${playerScore}
+  Computer: ${computerScore}
+  Ties: ${tieScore}`
+  return(finalScore);
 }
 const playerSelection = playerPlay();
 const computerSelection = computerPlay();
