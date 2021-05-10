@@ -8,13 +8,15 @@ function computerPlay() {
 function playerPlay() {
   let playerInput = prompt(`Choose: Rock, Paper, or Scissors`);
   let lowerInput = playerInput.toLowerCase();
+  
   return lowerInput;
-
   /* ***** Random for setup/testing *****
   let choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
   */
 }
+
+
 
 let playerScore = 0;
 let computerScore = 0;
